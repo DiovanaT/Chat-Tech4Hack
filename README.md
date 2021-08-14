@@ -117,6 +117,23 @@ Adicionte o seguinte conteúdo trocando para seus dados do Banco de Dados:
 REACT_APP_MYAPI_URI=https:http://localhost:7071/
 ```
 
+
+No Backend crie uma pasta chamada local.settings.json e nele coloque o seguinte código
+```
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureSignalRConnectionString": passe o endpoint da azure aqui,
+    "FUNCTIONS_WORKER_RUNTIME": "node"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "http://localhost:8080,https://azure-samples.github.io,passe a url do front end aqui",
+    "CORSCredentials": true
+  }
+}
+
+```
 ### Quarto passo:
 
 Crie o Banco e a Table com o migration do Sequelize:
