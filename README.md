@@ -118,7 +118,7 @@ REACT_APP_MYAPI_URI=https:http://localhost:7071/
 ```
 
 
-No Backend crie uma pasta chamada local.settings.json e nele coloque o seguinte código
+No Backend crie um file chamada local.settings.json e nele coloque o seguinte código
 ```
 {
   "IsEncrypted": false,
