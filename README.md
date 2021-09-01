@@ -1,10 +1,10 @@
 # Chat Tech4HACKATON
 
----
-
 ## Descrição do Projeto
 
 HACKATON Tech4Humans
+
+Foi um projeto realizado para um evento de Hackaton oferecido pela empresa Tech4Humans e o CEU da UNIFEI.
 
 O que foi feito como aplicação?
 Nós utilizamos o SignalR da Azure para a criação de uma aplicação com Login, Register e ChatRoom de broadcast e ao clicar em um Username você consegue mandar uma mensagem privada. Utilizamos em conjunto a API da GoTiT.
@@ -21,8 +21,6 @@ Como utilizar?
 É necessário rodar a aplicação nos terminais, abrindo assim a URL localhost com a aplicação, onde você entra e clica em "Sign up for free" se não tiver conta, realizando o cadastro, logo depois você será redirecionado a uma rota de login, nela faça login entrando com suas credenciais e clicando em "Sign in". Ao realizar esses passos ira abrir o Chat.
 
 ---
-
-<hr></hr>
 
 ## Conteúdo
 
@@ -107,7 +105,7 @@ DATABASE_DATABASE=nome da sua data base aqui
 
 GOTIT_USERNAME=seu username da GoTiT aqui
 GOTIT_PASSWORD=seu password da GoTiT aqui
-GOTIT_URI=sua chave API da GoTiT aqui
+GOTIT_URI=sua chave API da GoTiT aqui (sem o /Analyze)
 ```
 
 Entre no editor de código e entre no frontend e crie uma pasta chamada .env:
@@ -162,16 +160,20 @@ cd Chat-Tech4Hack/frontend
 npm start
 ```
 
-<h2>BackEnd</h2>
+### Sexto passo:
+
+Infelizmente não foi possível adicionar uma página para criar uma nova room, sendo assim você deve criar uma conta e fazer login pelo site, com isso você será direcionado para a rota "/rooms". Não tendo nada pois não possui nenhuma room cadastrada em seu nome, para criar você deve acessar o seu Chrome DevTools ir "Application" depois em "Local Storage" terá um campo chamado token, você deve copia-lo.
+Agora você deve acessar um simulador de chamadas API, ex: Postman, Insomina... Com ele aberto, você ira adicionar a rota onde o backend está rodando, comumente "http://localhost:7071" e adicionar "/api/room" ficando então "http://localhost:7071/api/room". Colocar o método da chamada para "post", no corpo da requisição você irá adicionar um objeto json contendo o nome da room que você deseja criar:
 
 ```
-# Vá até a pasta:
-cd Chat-Tech4Hack/backend
-# Rode a aplicação:
-func start
+{
+  "name": "nome da room"
+}
 ```
 
-Se você seguiu os passos corretamente irá abrir uma aba no seu navegador principal, onde estará rodando a aplicação.
+Agora adicionar no cabeçalho da requisição um campo token onde você irá adicionar o token que foi copiado.
+
+Com isso só enviar a requisição e atualizar a página do react, onde a room já ira aparecer para você, com isso só clicar nela que você será redirecionado para a tela de chat.
 
 ## Futuro
 
